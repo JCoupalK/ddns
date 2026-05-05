@@ -4,8 +4,8 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         curl ca-certificates gnupg \
     && install -d /etc/apt/keyrings \
-    && curl -fsSL https://repo.powerdns.com/CBC8B383-pub.asc | gpg --dearmor -o /etc/apt/keyrings/powerdns.gpg \
-    && echo "deb [signed-by=/etc/apt/keyrings/powerdns.gpg] http://repo.powerdns.com/debian bookworm-auth-49 main" > /etc/apt/sources.list.d/pdns.list \
+    && curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | gpg --dearmor -o /etc/apt/keyrings/powerdns.gpg \
+    && echo "deb [signed-by=/etc/apt/keyrings/powerdns.gpg] http://repo.powerdns.com/debian bookworm-auth-50 main" > /etc/apt/sources.list.d/pdns.list \
     && printf "Package: pdns-*\nPin: origin repo.powerdns.com\nPin-Priority: 600\n" > /etc/apt/preferences.d/pdns \
     && apt-get update \
     && apt-get install -y --no-install-recommends pdns-server pdns-backend-remote \
